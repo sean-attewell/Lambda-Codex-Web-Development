@@ -1,0 +1,96 @@
+<!-- 
+<style>
+  p {
+    color: red
+  }
+</style>
+
+This is one way to add CSS, but more comment is to link to an external style sheet -->
+
+<head>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<h1> Lambda School is Awesome </h1>
+
+<p id="bar">HTML is what we call a "markup language" (as opposed to a "programming" language like JavaScript or Python). 
+This means that it is specifically designed to display data in a graphical form (rather than execute tasks).</p>
+
+<p class="foo">Every webpage is essentially just plain text. If you type the sentence "Lambda school is awesome" in an HTML file, you can open it in your web browser and even deploy it to the web. We can think of elements as being boxes of content on our web page. Different types of content will be contained in different boxes depending on their importance</p>
+
+<p class="foo">The p ("paragraph") element. This element is meant for holding text. By default, it will render text to the screen on a new line.</p>
+
+<div id="image-container">
+<div>The div element is a generic container. It is used primarily for grouping other HTML elements together. It is invisible by default but can be used to position or style a group of elements. Div isn't super useful in plain html, but will become powerful when we start to "stack" HTML with JavaScript and CSS. it is a block-level element, meaning it will take up its own, full line</div>
+
+<div>
+  <p>This paragraph is about grapefruits.</p>
+  <p>This paragraph is also about grapefruits! I guess it's related to the paragraph above because it shares a div.</p>
+</div>
+</div>
+
+<span>The span element is a generic text container. It does not create a new line like the p element does. This element is invisible by default but can be used for styling words or phrases within a larger body of text.  Unlike div, span operates inline and therefore doesn't take up its own line</span>
+
+<p>This paragraph contains a <span>very important phrase</span> that should be styled in some way.</p>
+
+<p>Avoid using heading tags to resize text. Headings use size to indicate their relative importance, but CSS is preferred for general-purpose resizing.
+  You should only use one h1 per page. Using more than one will not result in an error, but using only one is seen as a best practice</p>
+
+<h3>Sort of important headline.</h3>
+<h6>Least important headline.</h6>
+
+<p>
+  The W3C uses the word recommended to describe the most up to date web standards. The current recommended standard for HTML markup is HTML5. HTML5 comes with more meaningful tags to better describe our code. We use the word semantic to describe tags with meaning.
+</p>
+
+<!-- 
+  <h1>
+  <p>
+  <section>
+  <nav>
+  <header>
+  <footer> -->
+
+<p>Notice that you can quickly figure out what each tag listed should be described in HTML. The fact that you can read the tag and know more about its meaning instantly is a direct example of why we say it's semantic HTML.</p>
+
+<p>Non semantic tags include div and span.</p>
+
+<div>Search engines are algorithms looking for meaning. If your code has a lot of divs without meaning, you could lose out on valuable search engine optimization ranking. Knowing that both humans and machines prefer semantic code, we should get some practice writing it and knowing when to use it.</div>
+
+<p>Using a div to create space, add structure, or style elements is just fine. The concept of using markup like this is called presentational HTML. Presentational HTML does not convey meaning. It is used to achieve something the designer or client wanted but perhaps doesn't contain meaning. An example of this would be:  </p>
+
+<section>
+  <div>
+    <p>Half the content here should go here.</p>
+  </div>
+  <div>
+    <p>The other half here should go here.</p>
+  </div>
+</section>
+
+<div>Notice how we can use the section tag to wrap the content, but we could split the content into two halves using divs. Semantically we are still using section, and at the same time, we are using presentational div tags to split the content in half. We could then use CSS on our divs to split the content without hurting the semantic structure.</div>
+
+<button> Apply to Lambda</button>
+
+<p>When we need to include information that we don't want to render on the page (like the link to an image) we use special flags inside of our tags called attributes</p>
+
+<a href="http://www.lambdaschool.com">Here is a link!</a>
+
+<img src="https://i.kinja-img.com/gawker-media/image/upload/55d8b0446a9911edbd00fc4a6f7d0e67.jpg" />
+
+<h1> This is a list </h1>
+<p> This list contains a lot of different items <p>
+  
+<ul>
+    <li>
+      <span>I am an item</span>
+    </li>
+    <li>
+      <span>I am another item</span>
+    </li>
+    <li>
+      <span>I am a third item</span>
+    </li>
+  </ul>
+
+

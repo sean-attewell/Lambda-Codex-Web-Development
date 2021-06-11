@@ -1,0 +1,44 @@
+h1,
+h2,
+p {
+  font-family: sans-serif;
+}
+
+h1 {
+  color: red;
+  background: yellow;
+}
+
+button {
+  color: white;
+  background-color: #bb2026;
+  font-size: 16px;
+}
+
+#bar {
+  color: whitesmoke;
+  background: url('https://i.kinja-img.com/gawker-media/image/upload/55d8b0446a9911edbd00fc4a6f7d0e67.jpg');
+}
+
+#image-container {
+  background: url('https://assets-global.website-files.com/5cd091cfb5499f22bdf72905/5d1133da829994859a190d12_website-home4.jpg');
+  background-position: center;
+}
+
+.foo {
+  color: purple;
+}
+
+/* 
+Ids: are titles that can only appear on a single element. Think of it as you would your driver's license number. ONLY you have that one number.
+
+Classes: on the other hand can apply to multiple elements. Think of it like a classroom. Usually, you aren't the only person in a class, although you might be. The class is big enough for lots of people.
+
+Class selectors will always begin with ., and Id selectors will always begin with #.
+
+Color is used for text only. It will change the color of your text.
+font-size
+
+We can't use width or height for text, but we can determine the size of the font used. You can use any size unit here that you would use with a font in a word processor (px, em, in, and etc). Px or pixel is the most popular.
+
+*/
