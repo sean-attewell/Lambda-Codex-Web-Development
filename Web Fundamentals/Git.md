@@ -75,3 +75,52 @@ Git documentation: https://git-scm.com/docs
 1. Complete Assignment - Do all the work on your assignment on your personal computer. Commit your work regularly.
 1. Push- Push your local changes to your remote repo branch.
    Create a Pull Request - This pull request will be made with your student branch against the Fork you created in the beginning. Submit this link to Canvas.
+
+# Upstream Branches
+
+https://devconnected.com/how-to-set-upstream-branch-on-git/
+
+Upstream branches define the branch tracked on the remote repository by your local remote branch (also called the remote tracking branch)
+
+The easiest way to set the upstream branch is to use the “git push” command with the “-u” option for upstream branch.
+
+$ git push -u <remote> <branch>
+
+The u stands for upstream.
+The remote is usually called origin.
+It creates the branch remotely and then pushes to it.
+
+You can check tracking branches by running the “git branch” command with the “-vv” option.
+
+git branch -vv
+
+\* branch 808b598 Initial commit
+master 808b598 [origin/master] Initial commit
+
+We can set the upstream branch using the “git push” command.
+
+git push -u origin branch
+
+$ git branch -vv \* branch 808b598 [origin/branch]Initial commit
+master 808b598 [origin/master] Initial commit
+
+Great!
+We have successfully set the upstream branch for our newly created branch.
+
+# Best practices
+
+Branching
+
+You should delete branches when you're done using them. Similarly, you should never work on a branch for more than a few continuous days, always break a project down into lots and lots of smaller branches, and push and pull often. This will save you work when it comes to merge conflicts working with lots of developers later on.
+
+Commenting
+
+When you write code, you should get in the habit of adding meaningful comments to your code explaining why you wrote what you wrote
+
+Committing
+
+Developers like git because it is a version control system. Inherit to git is the idea that you never lose any progress! Gone are the days of pulling your hair out at 2am looking for v1 or v2 files that you maybe emailed to someone else, they're all saved in the version history. As such, there are a few best practices that you may have used with, for example, word documents that don't translate.
+
+First of all, keeping old content is totally unnecessary. If you ever need to refer to content from a previous version, you can do so by looking at version history.
+
+Second, you need to commit often and use meaningful commit messages. In order to go back and look at an old version of your code, you'll need to know which specific commit you want to look at. That means a commit message like "deleted unnecessary assets from images folder" will be a lot more helpful than something vague like "styling updates".

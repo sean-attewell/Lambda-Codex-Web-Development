@@ -23,6 +23,8 @@ ls
 cd
 The . directory is the current directory. The .. directory is the parent directory. Using the cd command with . we would just end up staying in our current directory. To go up a directory to the parent directory, use cd with double dots
 
+Avoid spaces in file names to make navigation easier!
+
 Now that we know some of the basics, let's add in [options] and [arguments] which modify the behavior of the command. The general structure is:
 
 $ command -options arguments
