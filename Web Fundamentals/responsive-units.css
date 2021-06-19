@@ -1,0 +1,94 @@
+/* px
+The px unit is referred to as an absolute length unit. This means that px does not adjust for its surroundings. Modern browsers now allow px units to scale with the zoomed in viewport. */
+
+h1 {
+  font-size: 18px;
+}
+
+/* 
+em
+
+The em unit is referred to as a relative length unit.
+It is relative to its parent unit
+If parent unit is font-size: 10px;
+Then font-size: 2em; of the hcild will be 20px
+
+This can be really useful when building responsive layouts or adjusting fonts on different devices.
+
+One of the issues with em is its inherited calculation. Sometimes changing just one parent element can lead to a cascade of skewed sizes
+*/
+
+.main-content {
+  font-size: 10px;
+}
+
+.main-content h1 {
+  /* 2em === 20px */
+  font-size: 2em;
+}
+
+/* rem
+
+The rem or root em unit is also referred to as a relative length unit. The root part means that this unit looks to the root element in a page. Usually the root element is going to be the html tag in a web page or application.
+
+Pro Tip: Using a hard coded pixel on the html tag is bad practice as it overwrites the user's default settings on their browser.
+
+Instead, use a % based unit to be more accessible. A great trick is to use 62.5% as the base value because then you can convert rem units by the power of 10 instead of 16. 62.5 * .16 = 10. That means 1rem would equate to 10px throughout the document! 
+*/
+
+/* 
+<section class="main-content">
+  <h1>Example</h1>
+</section> 
+*/
+
+html {
+  /* This technically works but is too rigid and not accessible */
+  font-size: 16px;
+  /* Best Practice */
+  font-size: 62.5%;
+}
+
+.main-content {
+  font-size: 10px;
+}
+
+.main-content h1 {
+  /* 2rem === 20px */
+  font-size: 2rem;
+}
+
+/* 
+Pros
+Responsive to root element only
+If you use a % based unit, you can achieve accessibility gains and eliminate the awkward conversion system of 16px (the browser's default font-size)
+
+Cons
+If you don't make the root element flexible, you will hurt accessibility by overwriting default user settings in the browser
+Converting px to rem when creating code from a design file usually requires a calculator or memorization that can feel cumbersome 
+*/
+
+/* 
+%
+The % unit is usually used for building responsive layouts more than for font sizing. % based layouts start at the viewport width and then cascade down through nested units. 
+*/
+
+.main-content {
+  /* this will be the entire viewport */
+  width: 100%;
+}
+
+.main-content h1 {
+  /* this will be half of .main-content */
+  width: 50%;
+}
+
+/* 
+vw / vh
+vw	Relative to 1% of the width of the viewport*	
+vh	Relative to 1% of the height of the viewport*
+
+These units completely rely on the viewport of the browser window to render. While these units can be used most places any other unit can be used, we caution against using them except in a specific use-case: full screen layouts.
+
+If you have ever tried to use height: 100%, you'll appreciate vw and vh. Rarely they are used to make a font fill the screen (think slideshows, or landing page headers w/ font sized to 1/3 of viewport, e.g. font-size: 33vh.) 
+*/

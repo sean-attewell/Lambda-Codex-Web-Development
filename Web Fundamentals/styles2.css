@@ -1,0 +1,75 @@
+/* 
+You can introduce CSS styles into your HTML using 3 different approaches.
+
+Inline styles
+Embedded style tag in the HTML page
+Externally linked CSS file
+
+If the internal style is defined after the link to the external style sheet, it will have more specificity.
+
+If the internal style is defined before the link to the external style sheet, the external style sheet with have more specificity.
+*/
+
+div {
+  height: 400px;
+  width: 400px;
+}
+
+.myclass {
+  height: 100%;
+  width: auto;
+  border: 1px solid black;
+}
+
+.container header {
+  font-family: 'Helvetica', Arial, sans-serif;
+}
+
+/* the same thing in three different ways with the same result: */
+
+.container header .main-header {
+  color: crimson;
+}
+
+.container header h1 {
+  color: crimson;
+}
+
+.container header h1.main-header {
+  color: crimson;
+}
+
+/* You can determine the size, color, and style of the border. It will be set up in this order: width, style, color */
+
+/* 
+In CSS, every ancestor of the original parent gains access to all the CSS properties through inheritance. You may be thinking, "How does inheritance occur in CSS?" The answer is the HTML structure. In HTML, when an element is placed inside another element, it is said to be nested within its parent element. This HTML nesting creates a bond between elements that we call inheritance.
+ */
+
+/* 
+Think of specificity weight like the waterfall example used earlier. The water at the top of the waterfall is less specific and, therefore, can be overwritten further This diagram below helps visualize specificity weight. Note the <symbol is used to represent "less specific." The more you read to the right, the more specific a selector or style will be. You have seen some of the selectors in this list before, others might be new.
+
+* < elements < classes, pseudo-classes, attributes < IDs < inline styles < !important
+
+ */
+
+* {
+  color: red;
+}
+/* There are occasions you would want to select every element on a web page. The universal selector, sometimes called the wild card or star selector, does precisely that.
+*/
+
+/* Classes are unique in that we can have multiple classes in the same HTML attribute */
+
+/* 
+Pseudo-Classes
+
+We could use something like li:last-childto always select the last child in an unordered list to achieve our goal with the inventory.
+*/
+
+h1:last-child {
+  color: orange;
+}
+
+/* <h1 class="normal">Normal class here</h1>
+<h1 class="normal">Normal class here</h1>
+<h1 class="normal">Psuedo class found here!</h1> */

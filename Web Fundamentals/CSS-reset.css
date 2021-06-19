@@ -1,0 +1,102 @@
+/* A CSS reset is when a developer will remove all default styling provided by browsers. Usually, a CSS reset will set all box model and font properties to 0 or inherit.
+
+Because resets knock out most default styling from the browser, you will want to place your reset code at the top of your CSS page. If you put the reset at the bottom of your page, it will knock out all your styles due the cascade of CSS 
+
+Example code from Eric Meyer's popular CSS reset:
+ */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* There are other more tailored resets that companies will use that are very specific to their needs. Some companies will incorporate their own style guides into a reset so that all new developers joining the company are aligned from the beginning.
+
+A popular alternative to just setting everything to zero is called Normalize. Normalize focuses on only fixing the cross browser problems and adding your own styles. The focus here is to utilize the positive sides of default browser styles. If you would like to learn more about normalize it would be to your advantage as many companies use this to build their projects.
+
+https://necolas.github.io/normalize.css/
+*/
