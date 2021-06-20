@@ -42,3 +42,8 @@ font-size
 We can't use width or height for text, but we can determine the size of the font used. You can use any size unit here that you would use with a font in a word processor (px, em, in, and etc). Px or pixel is the most popular.
 
 */
+
+/* 
+<span>, <a>, <button> etc can be modified to follow box model in CSS with display: block
+
+ */

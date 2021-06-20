@@ -1,0 +1,78 @@
+/* 
+Flexbox is a module
+Unlike regular CSS, when we introduce display: flex into our CSS, we are getting many new properties and rules.
+Some are applied to the flex container (the parent you set to 'dislpay: flex;'
+Some are applied to the flex items (the children one level deep)
+
+flexbox only goes one level deep
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/ 
+*/
+
+.container {
+  display: flex;
+  /* flex-direction sets the main axis flow, row is default */
+  flex-direction: row;
+  /* 
+  Won't respect the width of the flex items without wrapping
+  Will squeeze them onto one row (defaults to nowrap)
+  Either way it will be responsive to the size of the screen
+  */
+  flex-wrap: wrap;
+
+  /* flex-flow lets you set both at the same time */
+  /* flex-flow: row wrap; */
+
+  /* any time you hear justify in flexbox, think main axis. Defaults to flex-start */
+  justify-content: space-evenly;
+  /* 
+  Align items - how flex items are laid out along the cross axis 
+  Hear align, think cross axis
+  Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).
+  Stretch is default - divs will look the same size in spite of different content.
+  Stretch will literally stretch an item's white space to fill the full flex-container
+  */
+  align-items: center;
+  /*
+  Align-content only takes effect on multi-line flexible containers, where flex-flow is set to either wrap or wrap-reverse
+  align-content will not work if you don't have multiple lines of flex items to style.
+  If you only have one line of flex items, you won't see any changes!
+  Play around here https://codepen.io/lambdaschool/pen/KrBdBN
+  */
+  align-content: center;
+}
+
+.item3 {
+  /* This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items */
+  align-self: flex-end;
+}
+
+/* 
+We can now use a property called flex-direction that wouldn't have worked before we enabled our flexbox module with display: flex. 
+
+the element which we displayed flex on is now considered a flex container. Any elements nested inside of our flex container are now considered to be flex items, and they gain another set of properties.
+
+It is important to note that the relationship between a flex container and a flex item does not nest any deeper. The flex box module was designed to only nest one level deep
+*/
+
+/* 
+<!-- flex container -->
+<nav>
+  <!-- flex items -->
+  <a href="#">
+    <!-- flex box module does NOT reach this far! -->
+    Home
+  </a>
+  <a href="#">About</a>
+  <a href="#">Blog</a>
+  <a href="#">Contact</a>
+</nav> 
+*/
+
+/*
+Note that the content within the <a> tag is not impacted by the flexbox module. If we wanted to use flex properties on the content, we would need to display: flex on the <a> tag as well. 
+
+Declaring multiple flex modules within nested elements is perfectly fine!
+*/
+
+/* Flex box still respects the box model so you can use all of your hard earned CSS skills together to create layouts that every designer will love. */
