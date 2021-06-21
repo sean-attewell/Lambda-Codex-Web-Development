@@ -1,0 +1,126 @@
+/* 
+Fixed Layout
+
+Design is usually desktop only.
+CSS widths are usually hardcoded pixels.
+Horizontal scroll bars appear as the viewport shrinks smaller than the website's design.
+No media queries are used.
+Quicker deployment 
+*/
+
+.container {
+  width: 800px;
+  padding: 20px;
+  border: 1px solid red;
+  margin: 0 auto;
+}
+
+/* 
+Fluid Layout
+
+The opposite of a fixed layout is one that could expand and contract in proportion to most devices. This sounds great at first, but without constraints, you soon have to think about how your site will look on several devices with one set of styles.
+
+Some of the problems of a fluid layout include: images getting too small, buttons growing too large, and layouts that can grow to be way too spacious on large desktops. It's a constant game of white space and content. Fluid layouts still have a place in modern web design but are seen less frequently compared to adaptive and responsive.
+
+Features of Fluid Layout
+Design is often divided among desktop, tablet, or phone
+Percent based units instead of hard coded pixels
+Everything is designed to proportionally shrink
+No media queries are used 
+
+We have to be careful to update both the width and padding to equal 100%
+*/
+
+.container {
+  width: 98%;
+  margin: 0 auto;
+  border: 1px solid red;
+  padding: 20px 1%;
+}
+
+/* 
+Adaptive Layout
+Adaptive layouts borrow from the speed of a fixed-layout but accommodate different devices at specific breakpoints in design. For example, an adaptive website may have hardcoded pixels used for layout using media queries for different devices.
+
+Adaptive layout is another cheap and easy way to get more content out quickly for a business to more devices. Adaptive layout still lacks in accommodating for thousands of devices because care was only given to specific designs at certain breakpoints. It's a lot better than fixed, but we can do more with a responsive layout.
+
+Features of Adaptive Layout
+Design is often divided among desktop, tablet, or phone
+Media queries are used
+Layout widths are still hardcoded at each media query
+Quick deployment for specific devices 
+*/
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid red;
+  padding: 20px;
+}
+
+@media(max-width: 500px) {
+  .container {
+    width: 500px;
+    background: gray;
+  }
+
+  .container header nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &nbsp;.container header nav a {
+    margin-bottom: 20px;
+  }
+}
+
+
+/* 
+Responsive Layout
+Responsive layouts combine features of fixed, adaptive, and fluid websites into one seamless experience. Media queries are used to constrain responsive units so that as the viewport expands or shrinks, you get an experience that looks and functions beautifully across thousands of devices and screen sizes.
+
+Responsive sites take more time and effort to create and are the standard long term projects should aim for.
+
+Features of Responsive Layout
+Design is often divided among desktop, tablet, or phone.
+Responsive units are used throughout the site.
+Media queries are used.
+Site accommodates thousands of devices and takes longer to build. 
+*/
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid red;
+&nbsp; padding: 20px 1.25%;
+}
+
+@media(max-width: 500px) {
+  .container {
+    background: gray;
+  }
+
+  .container header nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &nbsp;.container header nav a {
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Desktop first uses max-width
+Until you're above 768px do the following: */
+@media (max-width: 768px) {
+  .box1 {
+    background: brown;
+    width: 400px;
+  }
+}
+
+/* 
+Elements will still be styled as per the desktop CSS written before the media query
+The media query can overwrite it as you see fit for smaller screens.
+*/
