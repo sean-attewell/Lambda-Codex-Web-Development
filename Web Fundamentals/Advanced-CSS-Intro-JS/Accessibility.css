@@ -1,0 +1,27 @@
+/* As web developers you should be designing web pages with all people in mind. Including, but not limited to: those with slow internet connection, those on mobile devices, those with auditory, cognitive, neurological, or physical disabilities,and those with visual needs. Recent studies show that up to 2.5% of all internet users interact with the web using a screen reader, which is a considerable number of people.
+ */
+
+/* Universal Design Theory
+Universal design theory states that designing with the "furthest out" individual in mind will end up benefiting all individuals who use the product or environment. This theory reaches all sorts of design—web, architecture, learning, and more. A commonly used example of universal design theory, applied to a real-world problem, are ramps on sidewalks. Though they were originally designed for people who need wheelchairs, they are used and enjoyed by many others for different needs such as parents with children in strollers.
+
+The idea of accessibility in web originated because people with disabilities needed to be able to access the internet in non-traditional ways. Unsurprisingly though, designing accessible websites has compounding benefits and it helps a plethora of other people. For example, folks using smaller browser screens are positively impacted by websites designed for those who need larger font sizes.
+
+Other universal benefits of accessibility include designs intended for permanent physical impairments that help people with temporary issues (like a broken thumb) and designs intended for the hearing impaired, for example closed captioning, that help everyone when they're in a loud space or can't use headphones. */
+
+/* browsers have settings that allow users to change a page's font size, but that only works if the associated CSS is scalable—REM, EM, % are all scalable */
+
+/* Screen Readers
+Screen readers are a great thing to keep top of mind while designing for accessibility. A screen reader is a tool (a browser extension or app) that transmits web page data for people with visual impairments, learning disabilities, or other needs; They usually operate by verbalizing the content or sometimes translating into braille. Screen readers read content based on how the HTML is coded, starting with <h1> headings, and navigating through other elements accordingly.
+
+As a web developer, it is important to make sure that your tags are semantic so that users who rely on screen readers can navigate accordingly. A webpage made entirely with <div> for example, would provide no hierarchy to the screen reader or the user, and would prevent them from being able to navigate the site.
+
+Semantic tags typically have english meaning, like <header>, <main>, <nav>, <button> and <article>. Non-semantic tags are those without any english meaning, like <div> and <span>.
+
+Similarly, when designing universally, you should be sure to include meaningful id and class names, and always give your images "alt" text.
+Class names will help future developers know how to style things accessibility wise.
+*/
+
+/* Color
+Close to 5% of the population of the United States (about 13 million people) is colorblind. Not to mention that plenty of folks view websites in grey scale out of personal preference. Therefore, when color is used to convey an important message, the message can be lost on a lot of users.
+
+To avoid this issue, every colorfully displayed component should have a visual counterpart e.g. an error in a form could have a cross symbol rather than just turning red */
