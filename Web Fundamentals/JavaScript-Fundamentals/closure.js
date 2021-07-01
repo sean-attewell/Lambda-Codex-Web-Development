@@ -1,7 +1,8 @@
 // A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). 
-// In other words, a closure gives you access to an outer function’s scope from an inner function. 
+// ***In other words, a closure gives you access to an outer function’s scope from an inner function.*** 
+// It makes it possible for a function to have "private" variables.
+// The counter is protected by the scope of the anonymous function, and can only be changed using the add function.
 // In JavaScript, closures are created every time a function is created, at function creation time.
-
 
 // Let's look at the Window/Console in a browser/node environment. Type window to your chrome console. 
 // JavaScript is executed in this context, also known as the global scope.
