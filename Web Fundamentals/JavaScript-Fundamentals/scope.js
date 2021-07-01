@@ -10,6 +10,7 @@
 
 
 // Hoisting
+
 // Typically when we use variables we declare and initialize them in the same line. That looks something like this:
 
 // declare & initialize variable
