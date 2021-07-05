@@ -21,6 +21,8 @@ function Person(attributes) {
   };
 }
 
+// 'this' refers to the object the constructor function makes when called with the 'new' keyword
+
 // We call Person with the new keyword, and we feed it an object literal that will map to those attributes specified in the Person block
 
 const fred = new Person({
@@ -44,7 +46,7 @@ console.log(fred.speak());
 // ***PROTOTYPE***
 
 // The prototype is the mechanism by which all JavaScript objects inherit from one another. 
-// You can think of the prototype as an object that objects use to hold onto values that can be passed down to other objects. We use it all the time in inheritance.
+// You can think of the prototype as an object that objects use to hold onto values that can be passed down to other objects. 
 
 // Let's refactor the constructor function Person and remove the speak function from the object. 
 // After speak has been removed, we will introduce a new speak property on Person using Person.prototype.
@@ -70,16 +72,18 @@ console.log(fred2)
 // Person2 { age: 35, name: 'Fred', homeTown: 'Bedrock' }
 console.log(fred2.speak())
 // Hello, my name is Fred (note this works even though speak isn't on the fred2 object)
+// It looks for speak first in the object's properties, then when it doesn't find it, looks in the object's prototype (then the prototype's prototype)
 
 // Now that we have added the speak function to the prototype of Person2, it will no longer be on the object fred. 
 // The Person2 prototype wholly owns speak. 
 // Person2 is now able to pass down speak to each instance of Person without creating a new property on any new objects.
 
 // Let's look at how inheritance works with prototypes. Here we create a Child constructor. 
+// Note that it expects an object, which can contain all attributes needed by this constructor and the one it is inheriting from.
 // Notice we are using the call() method to bind this to Person.
 
 function Child(childAttributes) {
-  Person2.call(this, childAttributes); // binding this to Person
+  Person2.call(this, childAttributes); // binding this to Person... Literally calling person2, which is a function, but with this context and attributes.
   this.isChild = childAttributes.isChild; // this will be a special attribute to Child
 }
 
@@ -132,11 +136,11 @@ function Product(name, price) {
 }
 
 function Food(name, price) {
-  Product.call(this, name, price); // give Product the Food's context and pass back to Product the Food's attributes
+  Product.call(this, name, price); // give Product the Food's context (this) and call Product with the Food's attributes
   this.category = 'food';
 }
 
-// You'll inherit the initialisation of parent attribute
+// You'll inherit the object as constructed by the parent constructor, but now with extra attribute specific to Food.
 
 console.log(new Food('cheese', 5).name);
 // expected output: "cheese"
