@@ -88,6 +88,8 @@ newman.speak();
 // Hello Newman
 // CordialPerson { greeting: 'Hello ', greeter: 'Newman', speak: [Function] }
 
+// Note that the print names the Constructor function, rather than just printing an object like normal.
+// It does the same when you print a class which is of course a constructor function under the hood
 
 console.log('\n\n// Principle 4: Explicit binding')
 
@@ -98,7 +100,19 @@ console.log('\n\n// Principle 4: Explicit binding')
 // We do so by calling them explicitly with new functions, .call and .apply
 
 jerry.speak.call(newman);
+// So the this calls jerry's speak function, but with the newman context (newman is 'this')
+// Hello Newman
+// CordialPerson { greeting: 'Hello ', greeter: 'Newman', speak: [Function] }
+
+// ***The call() allows for a function/method belonging to one object to be assigned and called for a different object.***
+
+// call() provides a new value of this to the function/method. 
+// With call(), you can write a method once and then inherit it in another object, without having to rewrite the method for the new object
+
+// call(thisArg, arg1, ... , argN)
+
 newman.speak.apply(jerry);
+// Hello Jerry
+// CordialPerson { greeting: 'Hello ', greeter: 'Jerry', speak: [Function] }
 
-
-
+// the fundamental difference is that call() accepts an argument list, while apply() accepts a single array of arguments.
