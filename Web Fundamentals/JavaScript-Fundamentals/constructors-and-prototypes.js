@@ -71,7 +71,8 @@ const fred2 = new Person2({
 console.log(fred2)
 // Person2 { age: 35, name: 'Fred', homeTown: 'Bedrock' }
 console.log(fred2.speak())
-// Hello, my name is Fred (note this works even though speak isn't on the fred2 object)
+// Hello, my name is Fred 
+// (note this works even though speak isn't on the fred2 object)
 // It looks for speak first in the object's properties, then when it doesn't find it, looks in the object's prototype (then the prototype's prototype)
 
 // Now that we have added the speak function to the prototype of Person2, it will no longer be on the object fred. 
@@ -83,7 +84,8 @@ console.log(fred2.speak())
 // Notice we are using the call() method to bind this to Person.
 
 function Child(childAttributes) {
-  Person2.call(this, childAttributes); // binding this to Person... Literally calling person2, which is a function, but with this context and attributes.
+  Person2.call(this, childAttributes); 
+  // Literally calling person2, which is a function, but with this context (i.e. this is the object Child creates when you use the 'new' keyword) and attributes.
   this.isChild = childAttributes.isChild; // this will be a special attribute to Child
 }
 
@@ -123,12 +125,12 @@ pebbles.checkIfChild()
 // My name is Pebbles and I am a child object
 
 
-// The call() allows for a function/method belonging to one object to be assigned and called for a different object.
+// ***The call() allows for a function/method belonging to one object to be assigned and called for a different object.***
 
 // call() provides a new value of 'this' to the function/method. 
-
 // With call(), you can write a method once and then inherit it in another object, without having to rewrite the method for the new object.
 
+// call(thisArg, arg1, ... , argN)
 
 function Product(name, price) {
   this.name = name;
@@ -136,16 +138,17 @@ function Product(name, price) {
 }
 
 function Food(name, price) {
-  Product.call(this, name, price); // give Product the Food's context (this) and call Product with the Food's attributes
+  Product.call(this, name, price); 
+  // give Product the Food's context ('this' is the object the Food constructor creates when you use the 'new' keyword ) and call Product with the Food's attributes
   this.category = 'food';
 }
 
-// You'll inherit the object as constructed by the parent constructor, but now with extra attribute specific to Food.
+// You'll inherit the object as constructed with the call to the parent constructor, but also with extra attribute specific to the Food constructor.
 
 console.log(new Food('cheese', 5).name);
-// expected output: "cheese"
+// cheese
 console.log(new Food('crackers', 2).category);
-// expected output: "food"
+// food
 
 // Note: While the syntax of this function is almost identical to that of apply(), the fundamental difference is that call() accepts an argument list, while apply() accepts a single array of arguments.
 

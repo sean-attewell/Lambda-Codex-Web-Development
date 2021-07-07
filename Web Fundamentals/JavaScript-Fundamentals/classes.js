@@ -1,7 +1,7 @@
 // With ES6 we gained the ability to use what is known as the class keyword
 // Classes in JS are syntactic sugar - it's all constructor functions and prototype objects under the hood.
 
-// Classes in JS are another type of Function
+// Classes in JS are just another type of Function
 
 // There are class declarations that we'll be learning about, but there are also class expressions.
 
@@ -21,7 +21,8 @@ class Rectangle {
 const newRect = new Rectangle(400, 800);
 console.log(newRect);
 // Rectangle { height: 400, width: 800 }
-// Note that is specifices the class name, which a normal object wouldn't.
+// Note that it specifices the class name, just like it specifies the constructor's name in the case of an object made with a constructor.
+// console logging a normal object of course just shows the object alone.
 
 
 // Inheritance with Classes
@@ -39,8 +40,9 @@ class Animal {
 
 // Notice that speak() is a method with some special syntax in this class. 
 // This method will not be a method on the object, but it will live on the object's prototype instead, which is nifty when you're worried about memory and such.
+// If you're looking at a child class of Animal, it won't be on the child's prototype, but will be on the parent's prototype. 
 
-// The extends word + super function will abstract away the .call(), as well as binding our objects prototypes to one another
+// The extends word + super function will abstract away the .call(), as well as binding our object's prototypes to one another
 // extends and super function are always used together.
 
 class Dog extends Animal {
@@ -53,13 +55,18 @@ class Dog extends Animal {
   }
 }
 
-// Parent.call(this, childattributes) is not something we have to do anymore.
-// Super will pass the attributes back up to the parent class (another way of saying, calls the parent function in child 'this' context, with attributes given)
-// Child.prototype = Object.create(Person2.prototype); is not something we have to do anymore either
+// Animal.call(this, childattributes) is not something we have to do anymore.
+// Super will pass the context and attributes back up to the parent class 
+// Another way of saying, calls the parent function in child 'this' context, with attributes given
+// remember that the 'this' context being passed to the parent function is the object returned by the child class constructor.
 
-// The speak method made on the class isn't going to be a property on the object made with the class, it will exist within the prototype
-// If you're looking at a child class, it won't be on it's prototype, but will be on the parent's prototype. 
-// (of course it is also on the child class prototype for the above example because we've overwritten it)
+// Nor do we have to do: 
+
+// Dog.prototype = Object.create(Animal.prototype); 
+
+// Dog.prototype.speak = function() {
+//   console.log(this.name + ' barks.');
+// };
 
 const doggy = new Dog('Grizzly');
 
@@ -104,9 +111,12 @@ class PersonClass {
 // and for the child:
 
 function Child(childAttrs) {
-  Person.call(this, childAttrs); // this is the special sauce
-  this.isChild = childAttrs.isChild; // this will be a special attribute to Child
+  Person.call(this, childAttrs);
+  this.isChild = childAttrs.isChild; 
 }
+
+// No need to the following if you're not going to inherit any methods:
+// Child.prototype = Object.create(Person.prototype); 
 
 Child.prototype.checkIfChild = function() {
   if(this.isChild) {
@@ -130,6 +140,7 @@ const pebbles = new ChildClass({
   age: 3,
   name: 'Pebbles',
   homeTown: 'Bedrock',
+  isChild: true
 });
 
 console.log(pebbles)
@@ -137,4 +148,4 @@ console.log(pebbles)
 //   age: 3,
 //   name: 'Pebbles',
 //   homeTown: 'Bedrock',
-//   isChild: undefined }
+//   isChild: true }

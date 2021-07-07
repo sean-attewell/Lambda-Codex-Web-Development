@@ -29,22 +29,15 @@ function greet() {
 
 // Let's take this a step further. In the given examples, we've seen that we have created two environments for our code. 
 // The first would be the global environment where lastName and greet exist. 
-// The second would be the local environment where the alert function is called. Let's represent those two environments like this:
+// The second would be the local environment where the alert function is called. 
 
-// { // Global
-//   lastName String: 'Bob',
-//   greet Function: { // Local to greet
-//     firstName String: 'Jim'
-//   },
-//   // alert Function: Lives on the global scope, but gets called from with inside greet.
-// }
 
 // The counter function
 
 // It's a function that declares and initialises a variable count, and returns a function
 // The returned function adds 1 to the variable count in the outer function and returns it
 // You can save the returned function in a new variable name
-// You can then invoke the new variable as a function, to add one to count and return it
+// You can then invoke the newly saved function, to add one to count and return it
 // It will always look to the original outer function for count, and so it will keep track of it.
 
 // Every time you run it, it just looks one level deep back to the context of the outer function, to find what count is. 
@@ -65,6 +58,8 @@ console.log(newCounter())
 console.log(newCounter())
 console.log(newCounter())
 
+
+// NOTE: returning count++ would start at 0, because it would only add 1 after returning.
 
 // Same thing written a different way:
 // https://www.w3schools.com/js/js_function_closures.asp
