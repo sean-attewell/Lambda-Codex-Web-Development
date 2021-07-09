@@ -30,7 +30,7 @@ element.addEventListener('click', (event) => {/*Handle event*/ event});
 // One of the most important properties of the event object is .target, this property will give us all of the info about the DOM node where the event happened. 
 // the target is the innermost thing we clicked (i.e. the button is within a div within the body etc)
 // the event object also has a path property, which is an array of how the event travelled through the DOM to get to the target!
-// button, div, body, html, document, window
+// first jumps to the target, ie, button, then div, body, html, document, window
 // the target has many of the same properties as a regular DOM node, .children, .parent, .style, innerText, etc. 
 // We can use these properties to manipulate the element itself, or it's relatives.
 // for example to change the background color we would write the following: 
