@@ -155,7 +155,7 @@ element.className = "green"
 // classList is a DOMTokenList.
 myDOMTokenList = element.classList
 // A DOMTokenList is an array-like object with a numerical zero-based index, a length property, also the .contains() and .forEach() methods.
-// It also has a property 'value' which is a string of all classes which we would normally get from class name 
+// It also has a property 'value' which is a string of all classes which we would normally get from .className as above 
 // Most notably the methods .add() .remove() and .toggle() exist. All three take a single string representing the class.
 // .add('className') and .remove('className') do as their names indicate.
 element.classList.add('large')
@@ -172,7 +172,7 @@ element.children
 element.parentNode
 
 
-// // Creating a new element
+// Creating a new element
 // An important feature of the DOM is the ability to create brand new elements dynamically. 
 // Using the document.createElement() method, we will be able to create a brand new element, style it, and add it anywhere on the DOM we would like.
 
