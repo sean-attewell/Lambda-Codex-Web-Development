@@ -22,6 +22,7 @@
 // You may be thinking, "wait, that's it?" Yep! 
 // Using components is as simple as building styles so that they don't rely on any other element on the page and don't bleed over into another component.
 
+
 // Components - JavaScript:
 // JavaScript is used to consume the data and output the content into the DOM. 
 // JavaScript's involvement in components is the glue that ties everything together. 
