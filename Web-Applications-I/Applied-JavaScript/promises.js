@@ -23,7 +23,7 @@ console.log('Over here!'); // this runs first
 
 // Learning how to handle promises is pretty straight forward.
 // In fact, on a Promise object there are really only two methods that we need to use to handle promises then and catch.
-// ***A Promise is helper object (made by a generator function you call with new) containing 2 methods!!
+// ***A Promise is helper object (made by a generator function you call with new) containing 2 methods (and some other stuff like status)!
 // We use the promise object to inform the JS engine that the async function has finished
 
 // For what we're trying to accomplish in terms of transferring data between our apps and some server somewhere, we will actually be using what is called a Promise Library. 
@@ -44,7 +44,7 @@ console.log('Over here!'); // this runs first
 // Fulfilled: a state where all's well and a resolved value can be used by our code.
 // Rejected: a state where something went wrong and there is an error that needs to be dealt with.
 
-// If the promise succeeds, it will return the value as a parameter into a callback passed into .then(). 
+// If the promise succeeds, it will return the value as a parameter in the callback passed into .then(). 
 // If the promise fails, the callback passed into the .catch() runs, taking an error as its argument.
 
 
@@ -98,10 +98,10 @@ const parseTime = ms => {
 };
 
 // Ok! Now we've offloaded some work from our then block into a function that resolves a promise. 
-// We can now use it like above, but this time, when we call our timeMachine function we'll pass this parseTime function as an argument to our first then block.
+// We can now use it like above, but this time, when we call our timeMachine function we'll pass this parseTime function as an argument (a callback) to our first then block.
 
 timeMachine()
-  .then(parseTime)
+  .then(parseTime) // you're not invoking parseTime with () because it's a callback that will be invoked when the time comes
   .then(timePassed => {
     console.log(timePassed); // --> OUTPUTS: "1 seconds have passed​​​​​"
   });
@@ -125,7 +125,7 @@ const timeMachine2 = () => {
   });
 };
 
-// Normal function that returns a promise
+// Normal function that returns a promise object
 // Used as the callback in the first .then() after the timeMachine2() function
 // Assumes the prior timeMachine2 function returns a 'ms' value to it (which it does through its resolve)
 const parseTime2 = ms => {
@@ -148,5 +148,6 @@ timeMachine2()
     console.log(err); // --> OUTPUT: ​​​​​[Error: ms is less than 1 second promise rejected!]​​​​​
   });
 
+// .then could handle both resolve and reject if you wanted to, but a separate .catch for the reject is clearer
 
-  // How we handle promises is what is important for us in the future. Not how we implement them. We will be using Axios for that.
+// How we handle promises is what is important for us in the future. Not how we implement them. We will be using Axios for that.
