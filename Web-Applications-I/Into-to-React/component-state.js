@@ -40,3 +40,36 @@ function App() {
 const rootElement = document.getElementById("root");
 render(<App />, rootElement);
 
+
+
+// To attach a click listener to a react component, we need to use this camel-casing: 
+// onClick. This event listener will take in a callback function
+
+// Everything is on fire
+// <div onClick={ setLightOn(!lightOn) } className="App">
+
+// Everything is fine
+// <div onClick={ ()=> setLightOn(!lightOn) } className="App">
+
+// The first invokes the function every nanosecond. The second only invokes it when you click the div.
+
+import React, { useState } from "react";
+import { render } from "react-dom";
+import "./styles.css";
+
+const white = "https://image.flaticon.com/icons/png/512/32/32177.png";
+const yellow =
+  "https://i.pinimg.com/originals/92/94/ba/9294badee7b8f3d93fa9bc6c874641b2.png";
+
+function App() {
+  const [lightOn, setLightOn] = useState(true);
+
+  return (
+    <div onClick={() => setLightOn(!lightOn)} className="App">
+      {lightOn === false ? <img src={white} /> : <img src={yellow} />}
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+render(<App />, rootElement);
