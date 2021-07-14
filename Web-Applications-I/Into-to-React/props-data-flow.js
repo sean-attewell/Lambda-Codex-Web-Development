@@ -1,11 +1,22 @@
 // 'props' are how we inject data into react components, and how they inject that data into child components 
-// through props... as in properties in the JSX you return.
+// through props... as in properties in the JSX invocation of that the component you return.
 
 // If we don't have visibility of the data (it's not in scope), we take data through props.
 // props is an object, data we wish to inject will be properties of the props object.
 
 // A component gets declared in the function declaration,
-// but the component gets executed in ReactDOM.Render(<App friends={siths}/>, rootElement);
+// but the component gets executed in the JSX, e.g.:
+// ReactDOM.Render(<App friends={siths}/>, rootElement);
+
+// or
+
+// const UserInfo = (props) => {
+//   return (
+//     <div>
+//         <DisplayName user={props.user} />
+//     </div>
+// )
+// }
 
 // Using this attribute like syntax with JSX we inject any data we like into the component 
 // the data always flows down to children, never back up.
@@ -48,7 +59,7 @@ const user = { name: "Hubert", age: 27 };
 const App = () => {
   const [user, setUser] = useState({ name: "Hubert", age: 27 });
 
-  return <UserInfo user={user} />;
+  return <UserInfo user={user} />; // curly braces must be to escape out of JSX into JS to reference the variable
 };
 
 

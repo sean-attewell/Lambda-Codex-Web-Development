@@ -27,6 +27,7 @@ function addTogether() {
   var answer = x + y;
   console.log(answer);
   }
+  
 addTogether();
 
 // From this point, we can call the addTogether function as many times as we like.
