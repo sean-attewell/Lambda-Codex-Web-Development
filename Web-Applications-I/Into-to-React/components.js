@@ -1,3 +1,5 @@
+// codesandbox.io will give you a react template to play with
+
 // React is a user interface component library that is used in various forms to create complex, rich user interfaces. 
 // It's not a framework! Only a library that does one thing really well... render UI.
 // It's scalable and reusable. Everything is a component.
