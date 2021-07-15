@@ -30,7 +30,7 @@
 
 // Managing state and props within components
 // A stateful component is one that holds state data, either as an object placed inside the constructor function, 
-// or a function component that includes the .useState function made available in the React v16.8 release (the one with hooks).
+// or a function component that includes the useState function made available in the React v16.8 release (the one with hooks).
 
 // When data comes into our application, it is loaded and stored on state, either in a centralized component specifically for state management, 
 // or a component rendering other components. 

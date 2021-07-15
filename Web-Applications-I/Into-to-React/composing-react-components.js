@@ -8,4 +8,24 @@
 // The pattern is called Prop Drilling.
 // Its functions and objects all the way down
 
-//
+const App = () => {
+  return (
+    <div>
+      <BestFriend bestFriend="Homer Hickam" favoriteBook="October Sky"/>
+    </div>
+  );
+};
+
+const BestFriend = props => {
+  return (
+    <div>
+      <h4>My best friends in this world is: {props.bestFriend}</h4>
+      <Book favoriteBook={props.favoriteBook} />
+    </div>
+  );
+};
+
+const Book = props => <p>My favorite book is: {props.favoriteBook}</p>;
+
+
+
