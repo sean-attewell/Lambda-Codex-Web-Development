@@ -20,6 +20,7 @@
 // A React component without side effects is called a pure component. 
 // A component is considered pure if it always renders the same output for the same state and props. 
 // Similarly, a side effect is something that can cause a component to return a different output for the same state and props. 
+
 // React offers us tools for managing side effects so we can avoid bugs and inconsistencies in our app. 
 // The effect hook useEffect() is one of those.
 
@@ -34,7 +35,7 @@
 // rather than forcing a split based on lifecycle methods. You may also opt into managing the component’s local state with a reducer to make it more predictable
 
 // In addition to making code reuse and code organization more difficult, we’ve found that classes can be a large barrier to learning React. 
-// You have to understand how this works in JavaScript, which is very different from how it works in most languages. 
+// You have to understand how 'this' works in JavaScript, which is very different from how it works in most languages. 
 // You have to remember to bind the event handlers. 
 // Without unstable syntax proposals, the code is very verbose. 
 // People can understand props, state, and top-down data flow perfectly well but still struggle with classes. 
@@ -121,7 +122,7 @@ useEffect(() => {
 // Now this effect will fire when and only when props.userId changes!
 
 // But wait, wouldn't we want this effect to fire when the component first mounts?
-// Even with a dependency array added to the effect hook, it will fire when the component mounts, and then only fire when the given dependencies change.
+// Even with a dependency array added to the effect hook, it will still fire when the component mounts, and then only fire when the given dependencies change.
 
 
 // How can we add an effect to our component that we only want to fire off once as the component mounts, and not any other times during the life of the component? 
@@ -145,8 +146,79 @@ useEffect(() => {
 
 // … the question is "with which state and props does this effect synchronize with"
 
-useEffect(cb); // all state and props
+// These all fire on mount too!
+
 useEffect(cb, []); // no state or props
 useEffect(cb, [these, states, props]);
+useEffect(cb); // all state and props
 
 
+// Random dog picture on mount:
+// https://codesandbox.io/s/affectionate-chaplygin-9p27c
+
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import axios from "axios";
+
+import "./styles.css";
+
+function App() {
+  const [dogPic, setDogPic] = useState("");
+
+  useEffect(() => {
+    axios
+      .get("https://dog.ceo/api/breeds/image/random")
+      .then(res => setDogPic(res.data.message));
+  }, []);
+
+  return (
+    <div className="App">
+      <h1>We Love Puppers</h1>
+      <img src={dogPic} alt="a random dog" />
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+
+
+// FETCHING DATA MULTIPLE TIMES WITH SYNCED EFFECT HOOKS
+// https://codesandbox.io/s/xenodochial-field-h4rfd
+
+// you'll want to declare functions needed by an effect inside of it. Then it's easy to see what values from the component scope that effect depends on.
+
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import axios from 'axios';
+
+function SearchResults() {
+  const [data, setData] = useState({ hits: [] });
+  const [query, setQuery] = useState('react');
+
+  useEffect(() => {
+    const fetchData = () => {
+      axios
+        .get('https://hn.algolia.com/api/v1/search?query=' + query)
+        .then(res => setData(res.data));
+    };
+
+    fetchData();
+  }, [query]);
+
+  return (
+    <>
+      <input value={query} onChange={e => setQuery(e.target.value)} />
+      <ul>
+        {data.hits.map(item => (
+          <li key={item.objectID}>
+            <a href={item.url}>{item.title}</a>
+          </li>
+        ))}
+      </ul>
+    </> // Fragments let you group a list of children without adding extra nodes to the DOM. https://reactjs.org/docs/fragments.html#short-syntax
+  );
+}
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(<SearchResults />, rootElement);
