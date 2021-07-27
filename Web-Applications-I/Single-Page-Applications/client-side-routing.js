@@ -10,6 +10,8 @@
 
 // You can add event listeners to the link that prevent default behaviour
 // then use the history API of HTML5 with the pushState method
+// So it won't network request because you prevented default
+// and it will change the URL, and add it to the history stack with pushState
 // see client-side-routing.png
 
 
