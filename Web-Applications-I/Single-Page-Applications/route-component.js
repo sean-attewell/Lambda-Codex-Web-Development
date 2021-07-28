@@ -1,6 +1,6 @@
 // The Route component makes sure the rendered component specified gets the history and location props
 // You can see this if you put 'debugger' in the functional component and hover over props for that component
-// lcation is all about where we are
+// location is all about where we are
 // match contains information about how this particular route matched the current location
 // you can use it to pull dynamic parameters from the URL
 // history is similar to the HTML5 history API.
@@ -15,7 +15,7 @@ function Blog(props) {
   </>
 }
 
-// history also contains a copy of hte location object, but we should never use it.
+// history also contains a copy of the location object, but we should never use it.
 
 // So the route component doesn't just allow us to render a component conditionally based on whether URL matches the path
 // It also injects components with these extra props.
@@ -110,3 +110,5 @@ function Avenger({ heroes }) {
 export default Avenger;
 
 
+// great summary of react router hooks
+// https://reactrouter.com/web/api/Hooks

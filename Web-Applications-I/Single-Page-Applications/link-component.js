@@ -68,7 +68,7 @@
 // Let's add the useRouteMatch hook to our Avenger's app to dynamically route to multiple avengers.
 // As usual, we need to import the hook in our App.js file like so:
 
-// import { useRouteMatch } from "react-router";
+// import { useRouteMatch } from "react-router-dom";
 
 // Then, we can declare a variable and give it the value of the route path to follow. That might look something like this:
 
@@ -106,5 +106,5 @@
 // export default Avenger;
 
 
-// Avengers example (remember they are conusing with the use of hero and heros)
+// Avengers example (remember they are confusing with the use of hero and heros)
 // https://codesandbox.io/s/react-router-avengers-example-5lu6t
