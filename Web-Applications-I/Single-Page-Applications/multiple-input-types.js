@@ -33,7 +33,7 @@
 </label>
 
 // Dropdowns
-// Dropdown menus are really important for gathering data because they insure data quality. They are built with the <select> element, with <option> elements nested inside.
+// Dropdown menus are really important for gathering data because they ensure data quality. They are built with the <select> element, with <option> elements nested inside.
 
 // The dropdown below draws its value from formState.bestie, which contains a string ("1" through "4"). 
 // If the string were "3" for example, the "Monica" option would display as selected.
