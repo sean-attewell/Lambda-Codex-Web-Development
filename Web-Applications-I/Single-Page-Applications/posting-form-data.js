@@ -31,7 +31,7 @@ axios
 // Alerting the user to an error
 // Use the new data to create side effects in your component(s) that modify the interface for your user in some way
 
-// instance, a POST request, such as the one above, might return a response (or res) like the following:
+// A POST request, such as the one above, might return a response (or res) like the following:
 
 // {
 //   error: false,
@@ -57,7 +57,7 @@ axios
 
 
   // this handles what happens when we submit the form. We want to prevent the default
-  //form submission from the browser and control what happens when we submit.
+  // form submission from the browser and control what happens when we submit.
   const formSubmit = e => {
     e.preventDefault();
     console.log("submitted!");

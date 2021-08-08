@@ -14,7 +14,8 @@ await schema.isValid('hello world');
 // This would return "true" since 'hello world' is a string
 
 // Validating a Form
-// Form validation is slightly more complicated but it follows the same logical pattern. First we declare a schema, then we validate data.
+// Form validation is slightly more complicated but it follows the same logical pattern. 
+// *** First we declare a schema, then we validate data.
 
 // In a forms app, the schema defines what the form looks like. 
 // It is kind of like a form outline, telling yup what the existing fields are and how they should be validated. 
