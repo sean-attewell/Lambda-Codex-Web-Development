@@ -81,7 +81,7 @@ import "./styles.css";
 
 const App = () => {
   return (
-    <Router>
+    <Router> 
       <nav className="navbar">
         <li>
           <Link to="/">Home</Link>
