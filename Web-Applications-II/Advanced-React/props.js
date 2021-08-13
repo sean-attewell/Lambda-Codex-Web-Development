@@ -54,7 +54,6 @@ export default Name;
 // What if we want to modify that data? Well, just as we can pass parent state down through props, we can also pass functions that modify child state! 
 // Executing these functions in our child components will cause state to change at our parent level components, 
 // resulting in reactive rendering through out all our application!
-// see props.png
 
 // functional component with props passed in (not referring to a 'this' object):
 const WelcomeBanner = (props) => {

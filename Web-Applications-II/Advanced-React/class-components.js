@@ -20,7 +20,7 @@
 // state is an object that lives on the this object
 
 // C C R
-// Class, cconstructor, Render
+// Class, constructor, Render
 
 import React from "react";
 import ReactDOM from "react-dom";
