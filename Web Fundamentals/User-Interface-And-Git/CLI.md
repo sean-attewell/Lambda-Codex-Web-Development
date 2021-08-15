@@ -25,6 +25,9 @@ The . directory is the current directory. The .. directory is the parent directo
 
 Avoid spaces in file names to make navigation easier!
 
+To open a particular file
+code props.js
+
 Now that we know some of the basics, let's add in [options] and [arguments] which modify the behavior of the command. The general structure is:
 
 $ command -options arguments

@@ -12,7 +12,7 @@
 
 
 // Principle 1: Window/Global Object Binding
-
+console.log("// Principle 1: Window/Global Object Binding")
 // When in the global scope, the value of "this" will be the window/console Object;
 function sayName(name) {
   console.log(this);
@@ -23,6 +23,7 @@ sayName("D'Artagnan");
 
 // Principle 2: Implicit Binding
 // Whenever a preceding dot calls a function, the object before the dot is this.
+// aka. when you call a method, the object that holds the method is 'this'
 
 console.log('\n\n// Principle 2: Implicit Binding')
 
@@ -57,7 +58,7 @@ you.sayName();
 // Depending on the object being passed in, we get a different context for this, so when we log out the this keyword, we get a different object each time it's run.
 
 // ***sayNameFunc assigns a method to the object you're passing in. 
-// So really it's the exact same as the prior implicit example. The 'this' in the method looks to the rest of the object for context.  
+// So really it's the exact same as the prior implicit example. The 'this' in the method looks to the rest of the object its on for context.  
 
 console.log('\n\n// Principle 3: New binding')
 
@@ -88,8 +89,8 @@ newman.speak();
 // Hello Newman
 // CordialPerson { greeting: 'Hello ', greeter: 'Newman', speak: [Function] }
 
-// Note that the print names the Constructor function, rather than just printing an object like normal.
-// It does the same when you print a class which is of course a constructor function under the hood
+// Note that the console log names the Constructor function, rather than just console loging an object like normal.
+// It does the same when you console log a class which is of course a constructor function under the hood
 
 console.log('\n\n// Principle 4: Explicit binding')
 
