@@ -22,11 +22,11 @@
 
 // Updating (growth)
 
-// - Any new props recieved from a parent will trigger updates to the child 
-//   so if the parent state is updated and that state is being passed down as props, react knows to re-render the child as well
 // - any changes to our state need to go through this.setState() 
 //   setState() calls a render by default
-//   shouldComponentUpdate is a method one could use here to stop a component from calling render if necessary
+// - Any new props recieved from a parent will trigger updates to the child 
+//   so if the parent state is updated and that state is being passed down as props, react knows to re-render the child as well
+// - shouldComponentUpdate is a method one could use here to stop a component from calling render if necessary
 // - componentDidUpdate()
 
 
@@ -50,11 +50,11 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-  // Don't do this!
+    // Don't do this!
     this.state = { color: props.color };
   }
 
-  render() {}
+  render() { }
 }
 // The problem is that it’s both unnecessary (you can use this.props.color directly instead)
 // and creates bugs (updates to the color prop won’t be reflected in the state).
@@ -93,7 +93,7 @@ class App2 extends React.Component {
       this.fetchData(this.props.userID);
     }
   }
-  render() {}
+  render() { }
 }
 
 // You may call setState() immediately in componentDidUpdate() but note that it must be wrapped in a condition like in the example above, 
