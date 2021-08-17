@@ -9,7 +9,6 @@
 // Will only be invoked once in the whole lifecycle
 // Used for loading in any async data that you'd need to have on state during the render
 // Takes time to request data. We can show a message to the user in the meantime.
-// If you put a setstate in (if exists), it will call render again.
 
 // Inside of componentDidMount we can call setState which forces a re-render of our component. 
 // This way, any asynchronous actions should be performed inside of our componentDidMount function, especially when it comes to fetching data via HTTP. 
@@ -49,3 +48,11 @@ class App extends React.Component {
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
+
+
+// The json() method of the Response interface takes a Response stream and reads it to completion. 
+// It returns a promise which resolves with the result of parsing the body text as JSON.
+
+// Note that despite the method being named json(), 
+// the result is not JSON but is instead the result of taking JSON as input and parsing it to produce a JavaScript object.
+

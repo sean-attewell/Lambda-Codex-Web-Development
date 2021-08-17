@@ -14,15 +14,28 @@
 // conditionals are common in state, because if data isn't back from a server they will show a loading bar or something
 // Good for recieveing props and translating those props to state
 
-// Any class that recieves props, 
+// Any class that recieves props
 // you can take those props in through the constructor
-// pass the back up through super, and set them on state.
+// then pass in to super() too
+// you can then use this.props.color directly instead of setting props on state of the child component manually
+// The super keyword is used to access and call the constructor 
+// The super keyword can also be used to call functions on a parent object
+// Syntax
+super([arguments]); // calls the parent constructor.
+super.functionOnParent([arguments]);
+// When used in a constructor, the super keyword appears alone and must be used before the this keyword is used. 
+
+// Parent.call(this, childattributes) is not something we have to do anymore.
+// Super will pass the context and attributes back up to the parent class 
+// Another way of saying, calls the parent function in child 'this' context, with attributes given
+// remember that the 'this' context being passed to the parent function is the object returned by the child class constructor.
+
 
 // The constructor can also be used to bind all class methods to the render function and vis versa (traditionally)
 // So you can call 'this.classmethod' (like clickHandlers or changeHandlers) within render
 // No need to bind in the construtor explicitly anymore with more advanced versions of react and babel
 // New ESNext syntax does that binding for us:
-// A constructor method defined as an arrow method without a const 
+// A **constructor method** is defined as an arrow method without a const 
 
 
 import React from 'react';
