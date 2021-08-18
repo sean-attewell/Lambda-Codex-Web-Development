@@ -18,7 +18,7 @@
 // you can take those props in through the constructor
 // then pass in to super() too
 // you can then use this.props.color directly instead of setting props on state of the child component manually
-// The super keyword is used to access and call the constructor 
+// The super keyword is used to access and call the parent constructor 
 // The super keyword can also be used to call functions on a parent object
 // Syntax
 super([arguments]); // calls the parent constructor.
