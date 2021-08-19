@@ -229,7 +229,9 @@ const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
     const item = window.localStorage.getItem(key);
     return item ? JSON.parse(item) : initialValue;
-  }); // Checks local storage for value, otherwise uses initial value
+  }); 
+  // Initial value is set to the return of a callback function
+  // Checks local storage for value, otherwise uses initial value provided
 
   const setValue = value => {
     setStoredValue(value);
