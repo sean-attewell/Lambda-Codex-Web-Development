@@ -1,4 +1,4 @@
-// note that there appears to be a render function in it and test, but sometimes we are using rtl.render() to make a simulated DOM.   
+// note that render is not destructured in the import this time, so accessing it through the rtl alias.   
 
 const simulatedDOM = rtl.render(<App />);
 
@@ -12,6 +12,11 @@ const h1 = simulatedDOM.getByText(/foo/i)
 // Jest_Dom has a ".toBeVisible()" matcher for that reason!
 
 // queryByText will avoid the test crashing immediately so you can assert that it's not there instead
+
+// **Remember that older versions of Create React App required you to install @testing-library/jest-dom and @testing-library/react separately. 
+// **Not anymore. 
+// **And we do NOT need to install Jest either, as CRA projects come with Jest installed and working out of the box.
+// Old version example below?
 
 import React from 'react';
 import * as rtl from 'react-testing-library';
@@ -145,7 +150,8 @@ it('renders "all about kittens" text', () => {
 
 // The aria-labelledby attribute establishes relationships between objects and their label(s), 
 // and its value should be one or more element IDs, which refer to elements that have the text needed for labeling.
-
+{/* <section aria-labelledby="KittensHeader">
+      <h2 id="KittensHeader">All About Kittens</h2> */}
 
 // Capture using different criteria. 
 // We have many other queries available to us. 

@@ -25,7 +25,7 @@ it('renders an element with the text Hello World', () => {
   expect(element).toBeVisible() // this one comes from the jest-dom
 })
 
-// You can console.log(wrapper.debug()) and run our tests to see the App looks like
+// You can console.log(wrapper.debug()) and run our tests to see what the App looks like
 // Will look like real DOM (class rather than className)
 // All of this is simulated in memory by the testing library
 
@@ -66,7 +66,7 @@ test("renders App without errors", () => {
 import React from 'react';
 
 const Greeting = () => {
-  return <h1 class="my-greeting">Hello Lambdalorians!</h1>;
+  return <h1 className="my-greeting">Hello Lambdalorians!</h1>;
 };
 
 export default Greeting
@@ -121,9 +121,9 @@ test("renders greeting on Greeting component", async () => {
 
 // FOLLOW ALONG
 // Create a React project with create-react-app in command line.
-// Remember that older versions of Create React App required you to install @testing-library/jest-dom and @testing-library/react separately. 
-// Not anymore. 
-// And we do NOT need to install Jest either, as CRA projects come with Jest installed and working out of the box.
+// **Remember that older versions of Create React App required you to install @testing-library/jest-dom and @testing-library/react separately. 
+// **Not anymore. 
+// **And we do NOT need to install Jest either, as CRA projects come with Jest installed and working out of the box.
 
 // Open App.test.js (inside the src folder). You should see the below:
 
