@@ -18,7 +18,7 @@ const DynamicTitle = () => {
     setInputText("");
   };
 
-  return (
+  return ( // Note you're not having to refer to 'this.title' with the hook in a functional component
     <div className="Wrapper">
       <h1 className="Title">{title}</h1>
       <form onSubmit={changeTitle}>
@@ -58,7 +58,7 @@ export default DynamicTitle;
 
 
 // Now, what happens if we need to issue state for multiple input tags? 
-// If we were to follow the lead of the patterns shown above, we would end up having to rewrite large amounts of our code 
+// If we were to follow the lead of the patterns shown above, we would end up having to rewrite large amounts of our code (such as change handlers) 
 // for each useState call that we've invoked in order to create state for our second, third, and fourth inputs.
 
 // Instead, let's build out our **custom hook** that to reuse stateful logic. In this way, we avoid repeating code unnecessarily
@@ -75,10 +75,11 @@ export const useInput = initialValue => {
 // We pass initialValue as a parameter on the function. 
 // initialValue is then passed into the useState hook, which returns an array with our value variable and setValue function 
 // Next, we have a handleChanges function that uses the setValue function to update state to a new value. 
+// You are exporting setValue too
+// handleChanges is used in JSX, setValue is used to directly edit state (e.g. when resetting it)
 // Finally, we return an array from our useInput custom hook containing the value variable, the setValue function, and the handleChanges function.
 
-// why does handleChanges exist when we already have setValue? 
-// Handle is used in JSX, setValue is used to directly edit state (e.g. when resetting it )
+
 
 // Let's take a look at this custom hook when it's imported and used in a component.
 
@@ -153,7 +154,8 @@ const [email, setEmail, handleEmail] = useInput("");
 // Notice how we are setting our handleUsername, handlePassword, and handleEmail functions to process changes to the input. 
 // Remember how we returned a handleChanges function from our custom hook? 
 // Well, we've renamed them here (again, thanks to array destructuring) and are using them just the same as before. 
-// However, now, we have less code for them in our component.
+// However, now, we have less code for them in our component. 
+// Change handler functions each made by useInput and imported rather than individually made in the component. 
 
 // The final thing you should notice is the resetValue function. 
 // When we invoke it, we use the setValues returned from each useInput (again, each one is named differently) 
@@ -162,7 +164,7 @@ const [email, setEmail, handleEmail] = useInput("");
 // ** Basically the main change from the first example is no longer needing a custom change handler function for each input **
 // ** Instead it just gets returned from our useInput custom hook we made ***
 
-// By building out a custom hook, we can skip writing out all of the stateful logic for our non-visual behavior. 
+// By building out a custom hook, we can skip writing out all of the stateful logic (change handlers) for our non-visual behavior. 
 // Custom hooks produce beautiful, DRY code that is easy to read and use. 
 // You have built a reusable piece of code that makes it easy for you to import anywhere 
 // in your application and build out stateful logic in any of your components.
@@ -188,12 +190,13 @@ const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
     const item = window.localStorage.getItem(key);
     return item ? JSON.parse(item) : initialValue;
-  });
+  }); // Checks local storage for value to initialise storedValue with, otherwise uses initial value
   const setValue = value => {
     setStoredValue(value);
-    window.localStorage.setItem(key, JSON.stringify(value));
+    window.localStorage.setItem(key, JSON.stringify(value)); // converts a JavaScript object or value to a JSON string
   };
   return [storedValue, setValue];
+  // The whole things returns setvalue insted of setStoredValue because it needs to set on localstorage too
 };
 
 // First, we pass in a key-value (like: "input1," "input2" ) and an initialValue. 
@@ -201,7 +204,7 @@ const useLocalStorage = (key, initialValue) => {
 // Instead of just passing in an initial value to this useState hook, we are using an anonymous arrow function as a callback to do two things:
 // Check if the window.localStorage has a specific item (retrieved by key) in it
 // Return that item from local storage if it exists or the initialValue otherwise
-// Because of this, our hook can now successfully check to see if a specific state item exists in localStorage, 
+// Because of this, our hook can now successfully check to see if a specific state item exists in localStorage 
 // and it can use that item if it exists instead of the provided initialValue. 
 
 // Then, we also have a setValue function that takes a value as a parameter, 
@@ -226,12 +229,16 @@ const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
     const item = window.localStorage.getItem(key);
     return item ? JSON.parse(item) : initialValue;
-  });
+  }); 
+  // Initial value is set to the return of a callback function
+  // Checks local storage for value, otherwise uses initial value provided
+
   const setValue = value => {
     setStoredValue(value);
     window.localStorage.setItem(key, JSON.stringify(value));
   };
   return [storedValue, setValue];
+  // The whole things returns setvalue insted of setStoredValue because it needs to set on localstorage too
 };
 
 
