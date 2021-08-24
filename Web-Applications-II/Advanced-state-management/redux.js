@@ -12,7 +12,7 @@
 // at scale were they only to use component state. 
 // So, they built a pattern, and said, "everyone here at Facebook is going to write code after this pattern." 
 // This way, they could eliminate many of the problems that unwieldy state-full components could surface. 
-// That pattern was called Flux link to docs, and it's primary use case was to add some stringency to the React ecosystem because by itself, 
+// That pattern was called Flux, and it's primary use case was to add some stringency to the React ecosystem because by itself, 
 // React is very unopinionated in how one should be designing their application and managing state.
 
 // Flux was great, but developers had a hard time with implementation because the pattern presented a few other problems. 
@@ -43,7 +43,7 @@
 
 // https://egghead.io/lessons/react-redux-pure-and-impure-functions
 
-// Pure functions returned values depend only on their argument, do not have side effects like network or databse calls
+// Pure functions returned values depend only on their arguments, do not have side effects like network or databse calls
 // Predictable - will return the same thing with the same arugments each time
 // Pure functions don't mutate the values passed in to it
 
@@ -116,7 +116,6 @@ import { connect } from 'react-redux';
 // Second with just the component we are trying to connect. 
 // For now, we'll pass null and {} into the first invocation.
 
-// export default MovieList; Not this way if we are connecting this component!
 export default connect(null, {})(MovieList)
 
 // Now MovieList is connected to the store. 
