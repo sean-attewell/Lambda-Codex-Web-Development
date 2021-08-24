@@ -4,7 +4,7 @@
 // In code, an action is simply an object with up to two properties - a type property and an optional payload property. 
 // Each action MUST have a type property. 
 // The type property is a string that explains what interaction just happened. 
-// By convention, we use all caps and underscores for types - ie 'LOGIN_USER or TOGGLE_TODO. 
+// By convention, we use all caps and underscores for types - ie LOGIN_USER or TOGGLE_TODO. 
 // The payload property is data that goes along with that interaction.
 
 // Actions are "dispatched" to our reducer - aka, passed into the reducer function as an argument. 
