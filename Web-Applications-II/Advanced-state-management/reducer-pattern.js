@@ -177,6 +177,7 @@ reducer(initialState, { type: 'increment' })
 // This strategy is especially powerful when we want our reducer to be able to reduce the state. Take a look at our reducer now:
 
 const initialState = { count: 0 }
+
 const reducer = (state, action) => {
   if (action.type === 'increment') {
     return { count: state.count + 1 }
@@ -291,3 +292,6 @@ function Counter() {
     </>
   )
 }
+
+// looks like the reducer function automatically receives the current state as a parameter from the useReducer hook
+// so you just need to pass in the action when calling dispatch in the onClick callback.
