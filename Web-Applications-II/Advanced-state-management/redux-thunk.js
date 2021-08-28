@@ -6,10 +6,10 @@
 // We are changing up the action creators to perform asynchronous API calls. 
 // We can do this because we know that Redux middleware intercepts the normal Redux flow, and can make a call before actions make it to the reducer.
 
-// A thunk is a term for a function returned by another function (a.k.a. an inner function)
+// A thunk is a term for a function returned by another function (a thunk is also called an inner function)
 // It's when a function thunks out another function.
 // I think the function being returned is the thunk?
-// We will use thunks in our action creators to run async oeprations in redux.
+// We will use thunks in our action creators to run async operations in redux.
 
 function not_a_thunk() {
   // this one is a "thunk" because it defers work for later:
