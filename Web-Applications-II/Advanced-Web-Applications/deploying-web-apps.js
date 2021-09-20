@@ -40,6 +40,19 @@
 // A domain name
 // A server 
 
+// Each website will have a website address, or a domain name, and each domain name is tied to the IP address of the web server it resides on. 
+// IP addresses are managed and tracked via the Domain Name Server (or DNS for short). 
+
+// DNS works very similarly to the Contacts app on your mobile phone – you open up the Contacts app, 
+// type in a person’s name and your mobile phone returns with the person’s phone number and other contact information you might have entered. 
+// You can then decide if you want to call, email or text that person. 
+
+// When you type in a domain name in your web browser, your web browser is actually conducting a series of inquiries that include: 
+// looking up the IP address of the domain name, 
+// locating the web server that hosts the web pages of the domain name, 
+// submitting a request to that server for a copy of the web page(s), 
+// receiving the web page(s) from the server 
+// and finally translating the codes on the web page to present the information on your screen. 
 
 
 
