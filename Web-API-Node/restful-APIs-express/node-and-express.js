@@ -153,7 +153,9 @@ const express = require('express'); // import the express package
 
 const server = express(); // creates the server
 
-// handle requests to the root of the api, the / route
+
+// the second argument passed to the .get() method is the "Route Handler Function"
+// the route handler function will run on every GET request to "/"
 server.get('/', (req, res) => {
   res.send('Hello from Express');
 });
@@ -177,3 +179,46 @@ server.listen(5000, () =>
 // call back is only run if it's a get request and the url is '/' (the root of our site)
 
 // yarn start or npm start to run it
+
+const express = require('express');
+
+const server = express();
+
+server.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
+server.get('/hobbits', (req, res) => {
+  const hobbits = [
+    {
+      id: 1,
+      name: 'Samwise Gamgee',
+    },
+    {
+      id: 2,
+      name: 'Frodo Baggins',
+    },
+  ];
+
+  res.status(200).json(hobbits);
+});
+
+server.listen(8000, () => console.log('API running on port 8000'));
+
+
+
+// postman
+// postman acts like a react application
+// i.e. a client sending requests to the server
+
+// Testing APIs is different from testing websites or web applications. 
+// A web browser is sufficient to test the latter, but we need to make POST/PUT/PATCH/DELETE requests for APIs and even modify the request headers.
+
+// For testing, we will use a tool called Postman. Postman and other similar tools allow full control when making requests. 
+// For example, we can easily change the HTTP Method used, add JSON data to the body, add form data, add headers, examine the response, and more.
+
+// In express, res.send or .json will stop your node process from running, and execute a return back to the client.
+// res.sendStatus() is terminating (unlike just res.status())
+
+// this configures our express server to say everything that we're sending back and fourth between the client and serve should be JSON
+server.use(express.json())
