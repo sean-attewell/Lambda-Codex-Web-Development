@@ -145,3 +145,5 @@ server.use('/', (req, res) => res.send('API up and running!'));
 
 server.listen(9000, () => console.log('API running on port 9000'));
 
+// Visiting http://localhost:9000/racess should return our array of strings.
+
