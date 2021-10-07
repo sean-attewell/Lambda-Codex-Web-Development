@@ -1,0 +1,103 @@
+To see all the fields on a table, we can use a * as the selection.
+select * from employees;
+
+To pick the fields we want to see, we use a comma-separated list:
+select first_name, last_name, salary from employees;
+
+
+insert into <table name> (<selection>) values (<values>)
+
+Using this formula, we can specify which values will be inserted into which fields like so:
+
+insert into Customers (Country, CustomerName, ContactName, Address, City, PostalCode)
+values ('USA', 'Lambda School', 'Austen Allred', '1 Lambda Court', 'Provo', '84601');
+
+
+The basic syntax for an UPDATE statement is:
+update <table name> set <field> = <value> where <condition>;
+
+The basic syntax for a DELETE statement is:
+delete from <table name> where <condition>;
+
+
+Filtering results using WHERE clause
+
+select City, CustomerName, ContactName
+from Customers
+where City = 'Berlin'
+
+select City, CustomerName, ContactName
+from Customers
+where Country = 'France' and City = 'Paris'
+
+
+To select a single record, we can use a WHERE statement with a uniquely identifying field, like an id:
+
+select * from Customers
+where CustomerId=3;
+
+
+Other comparison operators also work in WHERE conditions, such as >, <, <=, and >=.
+select * from employees where salary >= 50000
+
+
+ORDERBY
+
+Query results are shown in the same order the data was inserted. To control how the data is sorted, we can use the ORDER BY clause. Let's see an example.
+
+-- sorts the results first by salary in descending order, then by the last name in ascending order
+select * from employees order by salary desc, last_name;
+
+We can pass a list of field names to order by and optionally choose asc or desc for the sort direction. The default is asc, so it doesn't need to be specified.
+
+Some SQL engines also support using field abbreviations when sorting.
+select name, salary, department from employees order by 3, 2 desc;
+
+In this case, the results are sorted by the department in ascending order first and then by salary in descending order. The numbers refer to the fields' position in the selection portion of the query, so 1 would be name, 2 would be salary, and so on.
+
+Note that the WHERE clause should come after the FROM clause. The ORDER BY clause always goes last.
+select * from employees where salary > 50000 order by last_name;
+
+
+
+LIMIT
+
+When we wish to see only a limited number of records, we can use a LIMIT clause.
+
+The following returns the first ten records in the products table:
+
+select * from products
+limit 10
+
+LIMIT clauses are often used in conjunction with ORDER BY. The following shows us the five cheapest products:
+
+select * from products
+order by price desc
+limit 5
+
+
+INSERT
+
+Some fields, like ids and timestamps, may be auto-generated and do not need to be included in an INSERT statement
+-- we can add fields in any order; the values need to be in the same ordinal position
+-- the id will be assigned automatically
+
+insert into Customers (Country, CustomerName, ContactName, Address, City, PostalCode)
+values ('USA', 'Lambda School', 'Austen Allred', '1 Lambda Court', 'Provo', '84601');
+
+The values in an insert statement must not violate any restrictions and constraints the database has in place, such as expected data types
+
+
+UPDATE
+
+update Customers
+set City = 'Silicon Valley', Country = 'USA'
+where CustomerName = 'Lambda School'
+
+Technically the WHERE clause is not required, but leaving it off would result in every record within the table receiving the update.
+
+
+DELETE
+
+delete from Customers
+where CustomerName = 'Lambda School`;
