@@ -3,7 +3,7 @@
 // As soon as we do, Jest dependencies will show up in our package.json file.
 
 // npm init -y (create package.json)
-
+// .gitignore with node_modules
 // npm install -D jest
 
 // Configure jest
@@ -168,3 +168,63 @@ describe("mathHelpers", () => {
   });
 
 });
+
+
+
+// Test driven development is the process of writing tests before code. 
+// In theory, you can write much higher quality code when you start with the end (the tests) in mind. 
+
+// Let's consider some units of code. First, we want this function to take two numbers and return the first number to the power of the second number.
+// Some assertions we might want to check are:
+
+// The function returns a number
+// The function returns a to the power of b
+// The function does not return b to the power of a
+// The function returns undefined if one parameter is not a number
+
+// There's an endless amount of assertions we could check, but it helps to think of the most likely scenarios where the unit could fail for test-driven development.
+// In this example, we'd write all of these tests in Jest. After that, we could start hacking away at the function. So as long as all the tests pass, you can be confident in what you've created.
+
+
+// They have messed up in this example by expecting it to remove $50,000 in all but the last test
+
+describe('removeSalaries', () => {
+  it('should return an array of shorter length', () => {
+      const salaries = [50000, 45000, 60000];
+      expect(removeSalaries(salaries).toHaveLength(1));
+  });
+  it('should return numbers', () => {
+      expect(removeSalaries(salaries).toContainType) // presumably another error in the course material
+  });
+  it('should remove all salaries less than 50,000', () => {
+      const salaries = [50000, 45000, 60000];
+      const expected = [60000];
+      expect(removeSalaries(salaries).arrayContaining(expected));
+  });
+  it('should allow for type coercion', () => {
+      const salaries = ["50000", "45000", "60000"];
+      const expected = [60000];
+      expect(removeSalaries(salaries).arrayContaining(expected));
+  });
+  it('should not remove 50,000', () => {
+      const salaries = [50000, 60000]
+      expect(removeSalaries(salaries).toContain([50000]))
+  });
+})
+
+
+// But you can still imagine writing these unit tests before the function
+
+// name function based on test
+const removeSalaries = salaries => {
+  //create an empty array
+  const higherSalaries = [];
+  //use conditional logic to add salaries to the new array
+  for (x in salaries) {
+    if (salaries[x] < 50000) {
+      higherSalaries.append(salaries[x]);
+    }
+  }
+  // return new array
+  return higherSalaries;
+};
